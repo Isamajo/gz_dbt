@@ -10,7 +10,7 @@ sources:
         description: all data concering products of gwz
         columns:
           - name: products_id 
-            description: id of products
+            description: primary key / id of products
           - name: purchase_price
             description: price of producted when purchased
       - name: sales
@@ -19,9 +19,9 @@ sources:
         columns:
           - name: date_date
             description: date of order id
-          - name: orders_id
+          - name: primary key / orders_id
             description: orders id is a unique order number
-          - name: products_id
+          - name: foreign key / products_id
             description: corresponding with the order id, but not unique
             name: revenue
             description: earnings per order id
@@ -31,7 +31,7 @@ sources:
         identifier: raw_gz_ship
         description: all data concering shipping of goods at gwz / orders ids corresponding with order ids from sales table
         columns:
-          - name: orders_id
+          - name: primary key / orders_id
             description: orders id is a unique order number
           - name: shipping_fee
             description: shipping costs associated with the order id
