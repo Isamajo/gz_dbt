@@ -20,3 +20,4 @@ renamed as (
 )
 
 select * from renamed
+Order BY orders_id asc
