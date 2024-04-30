@@ -20,4 +20,4 @@ renamed as (
 )
 
 select * from renamed
-Order BY orders_id asc
+Order BY products_id asc
