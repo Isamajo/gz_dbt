@@ -1,11 +1,15 @@
 
 version: 2
 sources:
-  - name: daw2-greenweez.gz_raw_data
+  - name: raw_data
+    schema: gz_raw_data
     tables:
-      - name: daw2-greenweez.gz_raw_data.raw_gwz_product
-      - name: daw2-greenweez.gz_raw_data.raw_gz_sales
-      - name: daw2-greenweez.gz_raw_data.raw_gz_ship
+      - name: product
+        identifier: raw_gwz_product
+      - name: sales
+        identifier: raw_gz_sales
+      - name: ship
+        identifier: raw_gz_ship
 
 models:
     - name: my_first_dbt_model
