@@ -8,6 +8,13 @@ config-version: 2
 
 # This setting configures which "profile" dbt uses for this project.
 profile: 'default'
+models:
+  staging:
+    +materialized: view
+  intermediate: 
+    +materialized: view
+  mart:
+    +materialized: table
 
 # These configurations specify where dbt should look for different types of files.
 # The `model-paths` config, for example, states that models in this project can be
