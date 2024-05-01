@@ -1,21 +1,51 @@
 
 version: 2
+sources:
+  - name: raw_data
+    schema: gz_raw_data
+    description: gz raw data source
+    tables:
+      - name: product
+        identifier: raw_gwz_product
+        description: all data concering products of gwz
+        columns:
+          - name: products_id 
+            description: primary key / id of products
+          - name: purchase_price
+            description: price of producted when purchased
+      - name: sales
+        identifier: raw_gz_sales
+        description: all data concering sales of goods at gwz / orders ids corresponding with product ids
+        columns:
+          - name: date_date
+            description: date of order id
+          - name: primary key / orders_id
+            description: orders id is a unique order number
+          - name: foreign key / products_id
+            description: corresponding with the order id, but not unique
+          - name: revenue
+            description: earnings per order id
+          - name: quantity
+            description: units ordered per order id
+      - name: ship
+        identifier: raw_gz_ship
+        description: all data concering shipping of goods at gwz / orders ids corresponding with order ids from sales table
+        columns:
+          - name: primary key / orders_id
+            description: orders id is a unique order number
+          - name: shipping_fee
+            description: shipping costs associated with the order id
+          - name: logcost
+            description: log costs associated with the order id
+          - name: ship_cost
+            description: ship costs associated with the order id
 
 models:
-    - name: my_first_dbt_model
-      description: "A starter dbt model"
-      columns:
-          - name: id
-            description: "The primary key for this table"
-            tests:
-                - unique
-                - not_null
+  - name: int_sales_margin
+    tests:
+      - unique:
+          column_name: "(orders_id || '-' || products_id)"
+      - not_null:
+          column_name:
+            - orders_id
 
-    - name: my_second_dbt_model
-      description: "A starter dbt model"
-      columns:
-          - name: id
-            description: "The primary key for this table"
-            tests:
-                - unique
-                - not_null
