@@ -39,7 +39,7 @@ sources:
             description: log costs associated with the order id
           - name: ship_cost
             description: ship costs associated with the order id
-    
+
 models:
   - name: int_sales_margin
     tests:
