@@ -14,7 +14,8 @@ SELECT
   SUM(logcost) AS logcost,
   SUM(ship_cost) AS ship_cost,
   SUM(quantity) AS quantity,
-  SUM(ads_margin) AS ads_margin
+  SUM(ads_margin) AS ads_margin,
+    {{cal_margin_per (7,12)}} as margin_percent
 FROM
   {{ref("finance_campaigns_day")}}
 GROUP BY

@@ -1,0 +1,1 @@
+{% macro cal_margin_per(x, y) %} safe_divide({{ x }}-{{ y }}, {{ x }}) {% endmacro %}
